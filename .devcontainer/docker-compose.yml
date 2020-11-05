@@ -10,7 +10,34 @@ services:
         - ..:/workspaces/wp-pdf-exporter
         - wp-pdf-exporter-extensions:/root/.vscode-server/extensions
         - wp-pdf-exporter-extensions-insiders:/root/.vscode-server-insiders/extensions
-  
+
+    wordpress:
+      image: wordpress:5.5.3
+      restart: always 
+      ports: 
+        - 8080:80
+      environment:
+        WORDPRESS_DB_HOST: db
+        WORDPRESS_DB_USER: wordpress
+        WORDPRESS_DB_PASSWORD: wordpress
+        WORDPRESS_DB_NAME: wordpress
+      volumes:
+        - wordpress:/var/www/html
+
+    db:
+      image: mysql:8.0.22
+      restart: always
+      environment:
+        MYSQL_DATABASE: wordpress
+        MYSQL_USER: wordpress
+        MYSQL_PASSWORD: wordpress
+        MYSQL_RANDOM_ROOT_PASSWORD: '1'
+      volumes:
+        - db:/var/lib/mysql
+    
 volumes:
   wp-pdf-exporter-extensions:
   wp-pdf-exporter-extensions-insiders:
+  wordpress:
+  db:
+  
