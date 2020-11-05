@@ -1,0 +1,24 @@
+{
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "exporter",
+    "workspaceFolder": "/workspaces/wp-pdf-exporter",
+    "extensions": [
+        "esbenp.prettier-vscode",
+        "editorconfig.editorconfig",
+        "ms-python.python",
+        "redhat.vscode-yaml",
+        "tamasfe.even-better-toml"
+    ],
+    "settings": {
+        "python.linting.enabled": true,
+        "python.linting.flake8Enabled": true,
+        "python.linting.pylintEnabled": false,
+        "python.formatting.provider": "black",
+        "[python]": {
+            "editor.formatOnSave": true,
+            "editor.codeActionsOnSave": {
+                "source.organizeImports": true
+            }
+        }
+    }
+}

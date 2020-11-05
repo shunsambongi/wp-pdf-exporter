@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+    exporter:
+      build:
+        context: ..
+        dockerfile: .devcontainer/Dockerfile
+      command: /bin/sh -c "while sleep 1000; do :; done"
+      working_dir: /workspaces/wp-pdf-exporter
+      volumes:
+        - ..:/workspaces/wp-pdf-exporter
+        - wp-pdf-exporter-extensions:/root/.vscode-server/extensions
+        - wp-pdf-exporter-extensions-insiders:/root/.vscode-server-insiders/extensions
+  
+volumes:
+  wp-pdf-exporter-extensions:
+  wp-pdf-exporter-extensions-insiders:
